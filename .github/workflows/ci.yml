@@ -43,5 +43,5 @@ jobs:
           script: |
             cd ~/steam-forum-repo
             # This triggers your deployment on the server
-            docker compose pull
-            docker compose up -d
+            docker-compose pull
+            docker-compose up -d

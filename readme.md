@@ -6,7 +6,7 @@
 
 [![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/repository/docker/theinnocent_steam_forum)
 
-[![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?style=for-the-badge&logo=youtube)](YOUR_YOUTUBE_URL_HERE)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/OAEHqOrv-Hg?si=1blE2f7F3INqhpgr)
 
 
 # Steam Django Backend

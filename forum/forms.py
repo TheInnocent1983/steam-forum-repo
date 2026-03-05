@@ -9,22 +9,21 @@ class CommentForm(forms.ModelForm):
         model = Comment
         fields = ["content"]
 
+
 class RegisterForm(UserCreationForm):
     class Meta:
         model = User
         fields = ["username", "password1", "password2"]
+
 
 class GameForm(forms.ModelForm):
     class Meta:
         model = Game
         fields = ["name", "description"]
 
+
 class DeleteForm(forms.Form):
-    confirm = forms.BooleanField(
-        required=False,
-        initial=True,
-        widget=forms.HiddenInput
-    )
+    confirm = forms.BooleanField(required=False, initial=True, widget=forms.HiddenInput)
 
 
 class TopicForm(forms.ModelForm):

@@ -6,7 +6,9 @@ from .forms import CommentForm, RegisterForm, GameForm, DeleteForm, TopicForm
 def game_list(request):
     games = Game.objects.all()
     delete_form = DeleteForm()
-    return render(request, "forum/game_list.html", {"games": games, "delete_form": delete_form})
+    return render(
+        request, "forum/game_list.html", {"games": games, "delete_form": delete_form}
+    )
 
 
 def game_detail(request, pk):
@@ -31,11 +33,8 @@ def topic_detail(request, pk):
     else:
         form = CommentForm()
 
-    return render(request, "forum/topic_detail.html", {
-        "topic": topic,
-        "form": form
-    })
-    
+    return render(request, "forum/topic_detail.html", {"topic": topic, "form": form})
+
 
 def topic_create(request, game_pk):
     game = get_object_or_404(Game, pk=game_pk)
@@ -86,7 +85,9 @@ def topic_delete(request, pk):
             return redirect("game_detail", pk=game_pk)
     else:
         form = DeleteForm()
-    return render(request, "forum/topic_confirm_delete.html", {"form": form, "topic": topic})
+    return render(
+        request, "forum/topic_confirm_delete.html", {"form": form, "topic": topic}
+    )
 
 
 def comment_edit(request, pk):
@@ -102,7 +103,9 @@ def comment_edit(request, pk):
             return redirect("topic_detail", pk=comment.topic.pk)
     else:
         form = CommentForm(instance=comment)
-    return render(request, "forum/comment_edit.html", {"form": form, "comment": comment})
+    return render(
+        request, "forum/comment_edit.html", {"form": form, "comment": comment}
+    )
 
 
 def comment_delete(request, pk):
@@ -119,9 +122,11 @@ def comment_delete(request, pk):
             return redirect("topic_detail", pk=topic_pk)
     else:
         form = DeleteForm()
-    return render(request, "forum/comment_confirm_delete.html", {"form": form, "comment": comment})
-    
-    
+    return render(
+        request, "forum/comment_confirm_delete.html", {"form": form, "comment": comment}
+    )
+
+
 def game_create(request):
     if request.method == "POST":
         form = GameForm(request.POST)
@@ -156,7 +161,9 @@ def game_delete(request, pk):
             return redirect("game_list")
     else:
         form = DeleteForm()
-    return render(request, "forum/game_confirm_delete.html", {"form": form, "game": game})
+    return render(
+        request, "forum/game_confirm_delete.html", {"form": form, "game": game}
+    )
 
 
 def register_view(request):

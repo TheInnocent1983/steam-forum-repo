@@ -18,4 +18,3 @@ limit_request_field_size = 8190
 
 proc_name = "django_app"
 preload_app = True
-

@@ -11,8 +11,11 @@ jobs:
 
     env:
       IMAGE: theinnocent/steam_forum
-      # Requirement 4: Tag with commit SHA
-      TAG: ${{ github.sha }}
+      TAG: ${{ github.sha }} # Requirement: Tag image with commit SHA
+      # Environment variables for the test environment
+      SECRET_KEY: "temporary-key-for-testing"
+      DEBUG: "True"
+      ALLOWED_HOSTS: "localhost,127.0.0.1"
 
     steps:
       - uses: actions/checkout@v3
@@ -22,18 +25,18 @@ jobs:
         with:
           python-version: '3.10'
 
-      # Requirement 1: Code quality checks
+      # Requirement: Code quality checks
       - name: Lint with flake8
         run: |
           python -m pip install flake8
           flake8 . --count --exit-zero --max-complexity=10 --max-line-length=119 --statistics --exclude=migrations,venv
 
-      # Requirement 2: Run tests (pytest-django)
+      # Requirement: Run tests (pytest-django with at least 5 tests)
       - name: Run tests
         run: |
           python -m pip install -r requirements.txt
           python -m pip install pytest pytest-django
-          PYTHONPATH=. pytest
+          DJANGO_SETTINGS_MODULE=config.settings PYTHONPATH=. pytest
 
       - name: Log in to Docker Hub
         uses: docker/login-action@v2
@@ -41,18 +44,18 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      # Requirement 3 & 4: Build and tag image appropriately
-      - name: Build Docker image
+      # Requirement: Build and tag Docker image
+      - name: Build and Tag image
         run: |
           docker build -t $IMAGE:latest -t $IMAGE:$TAG .
 
-      # Requirement 5: Push image to Docker Hub
-      - name: Push Docker image
+      # Requirement: Push image to Docker Hub
+      - name: Push image
         run: |
           docker push $IMAGE:latest
           docker push $IMAGE:$TAG
 
-      # Requirement 6: Deploy via SSH
+      # Requirement: Deploy to Azure server via SSH
       - name: Deploy to Azure VM
         uses: appleboy/ssh-action@v0.1.9
         with:
@@ -61,12 +64,10 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/steam-forum-repo
-            # Requirement: Pull latest images
             docker-compose pull
-            # Requirement 8: Restart services (down/up for clean state)
             docker-compose down
             docker-compose up -d
-            # Requirement 7: Run database migrations automatically
+            # Requirement: Run database migrations automatically
             docker-compose exec -T web python manage.py migrate --noinput
             # Requirement: Collect static files
             docker-compose exec -T web python manage.py collectstatic --noinput

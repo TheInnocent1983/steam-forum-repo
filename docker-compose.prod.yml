@@ -1,22 +1,27 @@
-version: '3.8'
-
 services:
   web:
     build:
       context: .
+      dockerfile: Dockerfile
       target: production
+    container_name: steam-forum-repo-web-1
+    env_file:
+      - .env
     volumes:
       - static_volume:/app/staticfiles
       - media_volume:/app/media
-    env_file:
-      - .env
+      - ./.env:/app/.env
     depends_on:
       - db
     networks:
       - app_network
+    ports:
+      - "8000:8000"
+    command: python manage.py runserver 0.0.0.0:8000
 
   db:
     image: postgres:15-alpine
+    container_name: steam-forum-repo-db-1
     env_file:
       - .env
     volumes:
@@ -26,6 +31,7 @@ services:
 
   nginx:
     build: ./nginx
+    container_name: steam-forum-repo-nginx-1
     ports:
       - "80:80"
     volumes:
@@ -36,12 +42,11 @@ services:
     networks:
       - app_network
 
-volumes:
-  postgres_data:
-  static_volume:
-  media_volume:
-
 networks:
   app_network:
     driver: bridge
 
+volumes:
+  postgres_data:
+  static_volume:
+  media_volume:

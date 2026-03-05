@@ -1,30 +1,25 @@
 #!/bin/bash
 set -e
 
-# Docker image passed as first argument
-IMAGE=$1
+# Optional: pass Docker image as first argument
+IMAGE=${1:-theinnocent/steam_forum:latest}
 
 echo "Deploying $IMAGE ..."
 
-# Stop old container if exists
-if [ "$(docker ps -q -f name=steam_django)" ]; then
-    echo "Stopping old container..."
-    docker stop steam_django
-    docker rm steam_django
-fi
+# 1️⃣ Stop old containers safely
+docker-compose down || true
 
-# Run new container
-docker run -d \
-  --name steam_django \
-  --env-file .env \
-  -p 8000:8000 \
-  $IMAGE
+# 2️⃣ Pull latest images
+docker-compose pull
 
-# Run Django migrations
-docker exec steam_django python manage.py migrate
+# 3️⃣ Start services
+docker-compose up -d --build
 
-# Collect static files
-docker exec steam_django python manage.py collectstatic --noinput
+# 4️⃣ Run Django migrations
+docker-compose exec web python manage.py migrate
+
+# 5️⃣ Collect static files
+docker-compose exec web python manage.py collectstatic --noinput
 
 echo "Deployment finished!"
 

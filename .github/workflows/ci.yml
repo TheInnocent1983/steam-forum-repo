@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+    workflow_dispatch:
 
 jobs:
   build-and-deploy:
@@ -64,9 +65,12 @@ jobs:
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             cd ~/steam-forum-repo
+            # Force local files to match GitHub to avoid merge conflicts
+            git fetch origin main
+            git reset --hard origin/main
+            # Pull the new image and restart services
             docker-compose pull
             docker-compose up -d --build
-            # Requirement: Run database migrations automatically
+            # Run final production steps
             docker-compose exec -T web python manage.py migrate --noinput
-            # Requirement: Collect static files
             docker-compose exec -T web python manage.py collectstatic --noinput

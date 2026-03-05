@@ -1,10 +1,10 @@
 # Links 
 
-GitHub repo:
-https://github.com/TheInnocent1983/steam-forum-repo
-Docker Hub:
-https://hub.docker.com/repository/docker/theinnocent/steam_forum
-YouTube video:
+## 🔗 Quick Links
+
+[![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/TheInnocent1983/steam-forum-repo)
+[![Docker](https://img.shields.io/badge/Docker-Hub-2496ED?style=for-the-badge&logo=docker)](https://hub.docker.com/repository/docker/theinnocent_steam_forum)
+[![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?style=for-the-badge&logo=youtube)](YOUR_YOUTUBE_URL_HERE)
 
 
 # Steam Django Backend

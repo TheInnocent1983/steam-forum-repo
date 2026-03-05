@@ -24,3 +24,5 @@
         --danger-bg: rgba(207, 34, 46, 0.1);
         --btn-bg: #1f883d;
         --btn-hover: #1a7f37;
+
+This is blank text, ignore it

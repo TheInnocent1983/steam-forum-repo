@@ -1,0 +1,37 @@
+name: Django CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Create .env file
+        run: |
+          echo "SECRET_KEY=testsecretkey" >> .env
+          echo "DEBUG=True" >> .env
+          echo "ALLOWED_HOSTS=localhost,127.0.0.1" >> .env
+          echo "DB_ENGINE=django.db.backends.postgresql" >> .env
+          echo "DB_NAME=steam_db" >> .env
+          echo "DB_USER=steamuser" >> .env
+          echo "DB_PASSWORD=steampass123" >> .env
+          echo "DB_HOST=db" >> .env
+          echo "DB_PORT=5432" >> .env
+
+      - name: Build and start containers
+        run: docker compose up -d --build
+
+      - name: Run migrations
+        run: docker compose exec -T web python manage.py migrate
+
+      - name: Stop containers
+        run: docker compose down
+

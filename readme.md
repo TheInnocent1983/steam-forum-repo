@@ -1,5 +1,3 @@
-# Links 
-
 ## 🔗 Quick Links
 
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)](https://github.com/TheInnocent1983/steam-forum-repo)
@@ -10,7 +8,9 @@
 
 [![Website](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white)](http://20.174.18.69/)
 
-[![Steam Forum](https://img.shields.io/badge/Steam_Forum-Online-blue?style=flat&logo=steam&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
+[![Steam Forum]([https://img.shields.io/badge/Steam_Forum-Online-blue?style=flat&logo=steam&logoColor=white](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white))](http://steam-forum.uaenorth.cloudapp.azure.com/)
+
+---
 
 ## Features
 - **User Authentication:** Sign up, log in, and logout functionality.

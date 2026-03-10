@@ -35,6 +35,9 @@ CSRF_TRUSTED_ORIGINS = [
     "http://steam-forum.uaenorth.cloudapp.azure.com/",
 ]
 
+SESSION_COOKIE_DOMAIN = None
+CSRF_USE_SESSIONS = False
+
 
 # Application definition
 INSTALLED_APPS = [

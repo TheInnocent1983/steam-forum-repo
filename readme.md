@@ -12,6 +12,9 @@
 
 ---
 
+## About the project
+`steam-forum-repo` is a containerized web platform that provides a community forum for gamers to discuss their favorite titles and share insights. Built with Django and PostgreSQL, it consists of a discussion system, user authentication, and a production-ready infrastructure managed via Docker and Nginx.
+
 ## Features
 - **User Authentication:** Sign up, log in, and logout functionality.
 - **Forum Management:** Create, read, update, and delete game topics.

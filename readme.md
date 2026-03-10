@@ -8,7 +8,7 @@
 
 [![Website](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white)](http://20.174.18.69/)
 
-[![Steam Forum]([https://img.shields.io/badge/Steam_Forum-Online-blue?style=flat&logo=steam&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
+[![Steam Forum](https://img.shields.io/badge/Steam_Forum-Online-blue?style=flat&logo=steam&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
 
 ---
 

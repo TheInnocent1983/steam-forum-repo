@@ -25,7 +25,15 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Security settings
 SECRET_KEY = config("SECRET_KEY", default="unsafe-secret-key-for-build")
 DEBUG = config("DEBUG", default=False, cast=bool)
-ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost", cast=Csv())
+# ALLOWED_HOSTS = config("ALLOWED_HOSTS", default="localhost", cast=Csv())
+ALLOWED_HOSTS = ["*"]
+
+CSRF_TRUSTED_ORIGINS = [
+    "http://localhost",
+    "http://127.0.0.1",
+    "http://20.174.18.69",
+    "http://steam-forum.uaenorth.cloudapp.azure.com/",
+]
 
 
 # Application definition

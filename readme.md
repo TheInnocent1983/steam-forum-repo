@@ -8,6 +8,10 @@
 
 [![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/OAEHqOrv-Hg?si=1blE2f7F3INqhpgr)
 
+[![Website](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white)](http://20.174.18.69/)
+
+[![Steam Forum](https://img.shields.io/badge/Steam_Forum-Online-blue?style=flat&logo=steam&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
+
 ## Features
 - **User Authentication:** Sign up, log in, and logout functionality.
 - **Forum Management:** Create, read, update, and delete game topics.

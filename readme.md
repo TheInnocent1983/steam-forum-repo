@@ -8,7 +8,7 @@
 
 [![Website IP](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white)](http://20.174.18.69/)
 
-[![Website Azure](https://img.shields.io/badge/Website-steam-forum.uaenorth.cloudapp.azure.com-green?style=flat&logo=googlechrome&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
+[![Website Azure](https://img.shields.io/badge/Website-20.174.18.69-blue?style=flat&logo=googlechrome&logoColor=white)](http://steam-forum.uaenorth.cloudapp.azure.com/)
 
 ---
 

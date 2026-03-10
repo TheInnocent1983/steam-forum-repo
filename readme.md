@@ -8,6 +8,12 @@
 
 [![YouTube](https://img.shields.io/badge/YouTube-Video-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/OAEHqOrv-Hg?si=1blE2f7F3INqhpgr)
 
+## Features
+- **User Authentication:** Sign up, log in, and logout functionality.
+- **Forum Management:** Create, read, update, and delete game topics.
+- **Commenting System:** Users can post and manage comments on specific games.
+- **Admin Interface:** Full CRUD capabilities via Django Admin.
+- **Containerized Environment:** Fully dockerized setup for consistent development.
 
 # Steam Django Backend
 
@@ -25,6 +31,15 @@ The application runs inside Docker containers orchestrated with Docker Compose.
 - Nginx
 
 ---
+
+## Deployment
+To deploy to a production environment:
+1. Ensure Docker and Docker Compose are installed on your server.
+2. Clone the repository.
+3. Configure your production `.env` file.
+4. Run the deployment script:
+   ```bash
+   docker compose -f docker-compose.prod.yml up -d
 
 ## Project Structure
 

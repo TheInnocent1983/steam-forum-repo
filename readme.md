@@ -26,6 +26,37 @@ The application runs inside Docker containers orchestrated with Docker Compose.
 
 ---
 
+## Local setup instructions
+
+#### Clone the Repository
+```bash
+   git clone https://github.com/TheInnocent1983/steam-forum-repo.git
+   cd steam-forum-repo
+```
+
+#### Configure Environment Variables
+```bash
+   touch .env  # or create it manually in VS Code
+
+   # Django settings
+   SECRET_KEY=r63-o+u_r5b8t&8&po_kj!wbod1znu-2%n3#u1($!w%mar5=yk5
+   DEBUG=True
+   ALLOWED_HOSTS=localhost,127.0.0.1
+
+   # Database settings
+   DB_ENGINE=django.db.backends.postgresql
+   DB_NAME=steam_db
+   DB_USER=steamuser
+   DB_PASSWORD=steampass123
+   DB_HOST=db
+   DB_PORT=5432
+```
+
+#### Launch the Local Environment
+``` bash
+   docker compose up --build
+```
+
 ## Tech Stack
 
 - Django

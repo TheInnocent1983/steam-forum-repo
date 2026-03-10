@@ -75,6 +75,18 @@ To deploy to a production environment:
    ```bash
    docker compose -f docker-compose.prod.yml up -d
 
+## Successful Launch Screenshots
+
+![Dashboard](screenshots/AzureLaunch.png)
+![Forum](screenshots/LocalLaunch_01.png)
+![Profile](screenshots/LocalLaunch_02.png)
+![Profile](screenshots/WebsiteLaunch_01.png)
+![Profile](screenshots/WebsiteLaunch_02.png)
+![Profile](screenshots/WebsiteLaunch_03.png)
+![Profile](screenshots/WebsiteLaunch_04.png)
+![Profile](screenshots/WebsiteLaunch_05.png)
+
+
 ## Project Structure
 
 ```text
